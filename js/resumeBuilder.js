@@ -148,6 +148,12 @@ var education = {
 }
 
 //Positioning Information
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
 if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
 
@@ -177,4 +183,22 @@ function displayWork() {
             $(".work-entry:last").append(formattedDescription);
         }
     }
+}
+
+//Log Clicks
+$(document).click(function(loc) {
+    var x = loc.pageX;
+    var y = loc.pageY;
+
+    logClicks(x,y);
+});
+
+//Internationalise Button - This is probably not necessary in project
+$("#main").append(internationalizeButton);
+
+function inName() {
+    var names = bio.name.split(" ");
+    var formattedNames = names[0].charAt(0).toUpperCase() + names[0].slice(1).toLowerCase() + " " + names[1].toUpperCase();
+
+    return formattedNames;
 }
