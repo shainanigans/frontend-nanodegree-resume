@@ -1,3 +1,4 @@
+//Resume Objects
 var bio = {
     "name": "Shaina Koval",
     "role": "Designer and Front-End Developer",
@@ -50,7 +51,7 @@ var work = {
             "employer": "AcademyX",
             "dates": "Dec 2012 - Mar 2013",
             "location": "San Francisco, CA, USA (working remotely from New Zealand)",
-            "description": "In this role, I designed all company advertisements and promotional materials, providing a cohesive aesthetic for the company. Additionally, I managed website updates to content and code and executed online marketing strategies. Designed and coded e-newsletters using HTML and CSS in Dreamweaver, ensuring that code would translate properly into a variety of email clients. Researched topics and wrote content for e-newsletters. • Updated web pages with content changes, added rich snippets, and unified styling for over 500 pages. Rewrote and coded web page content for better SEO. Increased Facebook page activity with engaging content."
+            "description": "In this role, I designed all company advertisements and promotional materials, providing a cohesive aesthetic for the company. Additionally, I managed website updates to content and code and executed online marketing strategies. Designed and coded e-newsletters using HTML and CSS in Dreamweaver, ensuring that code would translate properly into a variety of email clients. Researched topics and wrote content for e-newsletters. Updated web pages with content changes, added rich snippets, and unified styling for over 500 pages. Rewrote and coded web page content for better SEO. Increased Facebook page activity with engaging content."
         },
         {
             "title": "Training and Operations Coordinator",
@@ -64,7 +65,7 @@ var work = {
             "employer": "AcademyX",
             "dates": "Feb 2011 - May 2011",
             "location": "San Francisco, CA, USA",
-            "description": "As the first face that customers saw when they walked in, I set the tone for an enjoyable experience at the company’s facilities. I assisted all other staff members, from accountant to CEO, with their administrative needs while providing customer service and light IT support in the classroom. Addressed customer enquiries and concerns. Organised office storage space, maintained clean and professional classrooms, and stocked supplies. Consulted training calendar and enrolment lists to stock books and class materials for all classes on site and off site. Installed software and solved technical issues ranging from network connectivity to malfunctioning hardware to computer re-imaging. ReceivedEmployeeoftheMonththeonlymonththisaward was offered in my almost two years at the company (and was allowed to keep the certificate displayed at my desk for my entire tenure there)."
+            "description": "As the first face that customers saw when they walked in, I set the tone for an enjoyable experience at the company’s facilities. I assisted all other staff members, from accountant to CEO, with their administrative needs while providing customer service and light IT support in the classroom. Addressed customer enquiries and concerns. Organised office storage space, maintained clean and professional classrooms, and stocked supplies. Consulted training calendar and enrolment lists to stock books and class materials for all classes on site and off site. Installed software and solved technical issues ranging from network connectivity to malfunctioning hardware to computer re-imaging. Received Employee of the Month the only month this award was offered in my almost two years at the company (and was allowed to keep the certificate displayed at my desk for my entire tenure there)."
         }
     ]
 }
@@ -144,4 +145,36 @@ var education = {
             "url": "https://www.academyx.com/training/san_francisco/programs/web-marketing/"
         }
     ]
+}
+
+//Positioning Information
+if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+
+    for (skill in bio.skills) {
+        if (bio.skills.hasOwnProperty(skill)) {
+            var formattedSkill = HTMLskills.replace("%data%",bio.skills[skill]);
+
+            $("#skills").append(formattedSkill);
+        }
+    }
+}
+
+function displayWork() {
+    for (job in work.jobs) {
+        if (work.jobs.hasOwnProperty(job)) {
+            $("#workExperience").append(HTMLworkStart);
+
+            var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+            var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
+            var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+            var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+
+            $(".work-entry:last").append(formattedEmployer + formattedTitle);
+            $(".work-entry:last").append(formattedLocation);
+            $(".work-entry:last").append(formattedDates);
+            $(".work-entry:last").append(formattedDescription);
+        }
+    }
 }
