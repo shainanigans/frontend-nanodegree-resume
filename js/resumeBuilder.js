@@ -1,10 +1,12 @@
-//Resume Objects
+/***********
+    BIO
+***********/
 var bio = {
     "name": "Shaina Koval",
     "role": "Designer and Front-End Developer",
     "contacts": {
         "email": "me@shainakoval.com",
-        "website": "http://www.shainakoval.com",
+        "website": "www.shainakoval.com",
         "github": "shainanigans",
         "location": "Sydney"
     },
@@ -17,6 +19,8 @@ var bio = {
         "CSS",
         "WordPress",
         "PHP",
+        "JavaScript",
+        "jQuery",
         "MailChimp",
         "Photoshop",
         "InDesign",
@@ -30,6 +34,49 @@ var bio = {
     ]
 }
 
+bio.display = function() {
+    var bioPic = HTMLbioPic.replace("%data%", bio.picture);
+    $("#header").prepend(bioPic);
+
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedRole);
+
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(formattedName);
+
+    var formattedEmail = HTMLemail.replace("%data%", "<a href='mailto:"+bio.contacts.email+"'>"+bio.contacts.email+"</a>");
+    $("#topContacts").append(formattedEmail);
+
+    var formattedWebsite = HTMLblog.replace("%data%", "<a target='_blank' href='http://"+bio.contacts.website+"'>"+bio.contacts.website+"</a>").replace("blog", "website");
+    $("#topContacts").append(formattedWebsite);
+
+    var formattedGitHub = HTMLgithub.replace("%data%", "<a target='_blank' href='http://www.github.com/"+bio.contacts.github+"'>"+bio.contacts.github+"</a>");
+    $("#topContacts").append(formattedGitHub);
+
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#topContacts").append(formattedLocation);
+
+    var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedWelcome);
+
+    if (bio.skills.length > 0) {
+        $("#header").append(HTMLskillsStart);
+
+        for (skill in bio.skills) {
+            if (bio.skills.hasOwnProperty(skill)) {
+                var formattedSkill = HTMLskills.replace("%data%",bio.skills[skill]);
+
+                $("#skills").append(formattedSkill);
+            }
+        }
+    }
+}
+
+bio.display();
+
+/***********
+    WORK
+***********/
 var work = {
     "jobs": [
         {
@@ -91,6 +138,10 @@ work.display = function() {
 
 work.display();
 
+/*****************
+    PROJECTS
+*****************/
+
 var projects = {
     "projects": [
         {
@@ -143,6 +194,10 @@ projects.display = function() {
 
 projects.display();
 
+/*****************
+    EDUCATION
+*****************/
+
 var education = {
     "schools": [
         {
@@ -194,25 +249,6 @@ var education = {
     ]
 }
 
-//Positioning Information
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-if (bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-
-    for (skill in bio.skills) {
-        if (bio.skills.hasOwnProperty(skill)) {
-            var formattedSkill = HTMLskills.replace("%data%",bio.skills[skill]);
-
-            $("#skills").append(formattedSkill);
-        }
-    }
-}
-
 //Log Clicks
 $(document).click(function(loc) {
     var x = loc.pageX;
@@ -220,3 +256,6 @@ $(document).click(function(loc) {
 
     logClicks(x,y);
 });
+
+//Add Fancy Map
+$("#mapDiv").append(googleMap);
