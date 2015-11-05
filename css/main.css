@@ -1,0 +1,820 @@
+/*
+ * Shaina Koval's CSS for shainakoval.com
+ */
+
+
+/***************************************************************************
+---HTML ELEMENTS
+***************************************************************************/
+html, body {
+    height: 100%;
+    font-family: 'Karla', Helvetica, sans-serif;
+    background: #FAFAFA;
+}
+h1, h2, h3 {
+    font-family: 'Crete Round', Georgia, serif;
+    font-weight: normal;
+}
+a {
+    color: #66cccc;
+    text-decoration: none;
+}
+a:hover {
+    color: #3399ff;
+}
+
+/***************************************************************************
+---UNIVERSAL STRUCTURES AND CLASSES
+***************************************************************************/
+.container {
+    height: 100%;
+    width: 100%;
+}
+.constrain {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.clearfix:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+.content {
+    padding: 0 40px;
+    min-height: 100%;
+    margin-bottom: -103px; /* Equal to footer height */
+}
+.content:after {
+    content: "";
+    display: block;
+    height: 103px;
+}
+.main {
+    float: left;
+    width: 70%;
+    box-sizing: border-box;
+}
+aside {
+    float: right;
+    width: 25%;
+    margin-bottom: 20px;
+}
+.fixed-sidebar {
+    position: fixed;
+    /*margin-left: calc(75% - 60px);*/
+    top: 10px;
+}
+.sidenav {
+    margin-top: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.sidenav h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.sidenav a {
+    display: block;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    color: #000000;
+}
+.sidenav a:hover {
+    color: #66cccc;
+}
+.white-block {
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+}
+.white-block span {
+    padding-right: 10px;
+}
+a.white-block {
+    display:block;
+    overflow: auto;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+.ghost-button {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    clear: both;
+    border: 1px solid #000;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+}
+.ghost-button:hover {
+    border-color: #66cccc;
+    color: #66cccc;
+}
+a.ghost-button {
+    display: block;
+    margin-top: 20px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.blue:hover,
+#portfolio-label-container .portfolio-type.blue:hover {
+    color: #3399ff;
+    border-color: #3399ff;
+}
+.red:hover,
+#portfolio-label-container .portfolio-type.red:hover {
+    color: #cc3333;
+    border-color: #cc3333;
+}
+.turquoise:hover,
+#portfolio-label-container .portfolio-type.turquoise:hover {
+    color: #66cccc;
+    border-color: #66cccc;
+}
+.portfolio-image {
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+.portrait-container {
+    width: 50%;
+}
+
+/***************************************************************************
+---HEADER
+***************************************************************************/
+header {
+    padding: 0 40px 10px;
+    overflow: auto;
+}
+#header-inner {
+    border-bottom: 1px solid #000;
+    position: relative;
+    overflow: auto;
+    padding: 40px 0;
+}
+#logo {
+    width: 80px;
+    height: 110px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background-image: url("/img/shaina-koval-initial-icon.png");
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+}
+#logo:hover {
+    background-image: url("/img/shaina-koval-initial-icon-hover.png");
+    border-color: #3399ff;
+}
+nav {
+    display: inline-block;
+    float: right;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+}
+nav ul {
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+}
+nav li {
+    float: left;
+    margin-left: 15px;
+    padding-left: 15px;
+    line-height: 43px;
+    zoom: 1; /* prevents links from disappearing in IE7 */
+}
+nav li a {
+    color: #000;
+}
+nav li a:hover {
+    color: #66cccc;
+}
+
+/***************************************************************************
+---HOME
+***************************************************************************/
+#portfolio-label-container {
+    display: inline-block;
+    float: right;
+    text-align: right;
+    margin-bottom: 1.5em;
+}
+#portfolio-label-container #portfolio-labels {
+    overflow: auto;
+}
+#portfolio-label-container #portfolio-labels+p {
+    margin-top: 3px;
+}
+#portfolio-label-container .portfolio-type {
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 0;
+    overflow: auto;
+}
+#portfolio-label-container .portfolio-type:active,
+#portfolio-label-container .portfolio-type.is-checked {
+    background-color: #000;
+    color: #fff;
+}
+#portfolio-label-container .portfolio-type.is-checked:hover {
+    color: #fff;
+    border-color: #000;
+}
+#portfolio-label-container #portfolio-container {
+  list-style: none;
+  padding: 0;
+  overflow: auto;
+}
+#portfolio-container {
+    clear: both;
+}
+.item {
+    background-color: #fff;
+    color: #000;
+    width: 32%;
+    height: auto;
+    float: left;
+    margin: 0 0 3% 0;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+.item:hover {
+    color: #000;
+    border-color: #000;
+}
+.item .portfolio-image {
+    opacity: 0.9;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+}
+.item .portfolio-image:hover {
+    border-color: #eee;
+}
+.item:hover .portfolio-image {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+}
+.item .description {
+    position: relative;
+    padding: 0 30px 10px;
+    border-bottom: 1px solid #eee;
+}
+.gutter {
+    width: 2%;
+}
+#portfolio-central-heating {
+    background-image: url("/img/portfolio/central-heating-website-home.jpg");
+    padding-top: 62.5%;
+}
+#portfolio-uc-cs-plus-x-festival {
+    background-image: url("/img/portfolio/cs-plus-x-misfits-timeline-shaina-koval.jpg");
+    padding-top: 35.4%;
+}
+#portfolio-koval-kim-wedding {
+    background-image: url("/img/portfolio/koval-kim-website-mobile-home.jpg");
+    padding-top: 183%;
+}
+#portfolio-bear-dance {
+    background-image: url("/img/portfolio/william-beard-bear-dance-shaina-koval.jpg");
+    padding-top: 100%;
+}
+#portfolio-femsoc {
+    background-image: url("/img/portfolio/UC-FemSoc-Bigotry-Free.jpg");
+    padding-top: 141.9%;
+}
+#portfolio-daking {
+    background-image: url("/img/portfolio/daking-components-website-contact.jpg");
+    padding-top: 61.1%;
+}
+#portfolio-blue-dream {
+    background-image: url("/img/portfolio/blue-dream-curry-shaina-koval.jpg");
+    padding-top: 51.6%;
+}
+#portfolio-starry-hippo {
+    background-image: url("/img/portfolio/starry-starry-hippo-shaina-koval.jpg");
+    padding-top: 148.8%;
+}
+#portfolio-jjambbong {
+    background-image: url("/img/portfolio/hae-ran-jjambbong-shaina-koval.jpg");
+    padding-top: 100%;
+}
+#portfolio-big-wave {
+    background-image: url("/img/portfolio/the-big-wave-shaina-koval.jpg");
+    padding-top: 62.3%;
+}
+#portfolio-snapping-turtle {
+    background-image: url("/img/portfolio/dreams-turtle-shaina-koval.jpg");
+    padding-top: 150%;
+}
+#portfolio-dystopic-tree {
+    background-image: url("/img/portfolio/dystopic-tree-shaina-koval.jpg");
+    padding-top: 132.8%;
+}
+#portfolio-marit-larsen {
+    background-image: url("/img/portfolio/marit-larsen-shaina-koval.jpg");
+    padding-top: 130.8%;
+}
+#portfolio-uc-femsoc-stem {
+    background-image: url("/img/portfolio/uc-femsoc-zine-stem-cover.jpg");
+    padding-top: 141.88%;
+}
+#portfolio-click-weight-success {
+    background-image: url("/img/portfolio/click-weight-success-web-home.jpg");
+    padding-top: 55.63%;
+}
+#portfolio-vintage-posters {
+    background-image: url("/img/portfolio/1920s-vintage-poster-hot-sauce-shaina-koval.jpg");
+    padding-top: 141%;
+}
+
+/***************************************************************************
+---PORTFOLIO PAGES
+***************************************************************************/
+a .portfolio-image:hover {
+    border-color: #000;
+}
+#chnz-web-home {
+    background-image: url("/img/portfolio/central-heating-website-home.jpg");
+    padding-top: 62.5%;
+}
+#chnz-web-homeowners {
+    background-image: url("/img/portfolio/central-heating-website-homeowners.jpg");
+    padding-top: 62.5%;
+}
+#chnz-web-product-details {
+    background-image: url("/img/portfolio/central-heating-website-product-details.jpg");
+    padding-top: 62.5%;
+}
+#chnz-web-trade-orders {
+    background-image: url("/img/portfolio/central-heating-website-trade-orders.jpg");
+    padding-top: 62.5%;
+}
+#chnz-home-show-view-1 {
+    background-image: url("/img/portfolio/CHNZ-Home-Show-05.jpg");
+    padding-top: 54.5%;
+}
+#chnz-home-show-view-2 {
+    background-image: url("/img/portfolio/CHNZ-Home-Show-10.jpg");
+    padding-top: 66.6%;
+}
+#chnz-home-show-9m-mock-up {
+    background-image: url("/img/portfolio/CHNZ-Home-Show-Mock-Up-02.jpg");
+    padding-top: 37.8%;
+}
+#chnz-home-show-6m-mock-up {
+    background-image: url("/img/portfolio/CHNZ-Home-Show-Mock-Up-01.jpg");
+    padding-top: 53.6%;
+}
+#chnz-bus-advertising-auckland {
+    background-image: url("/img/portfolio/CHNZ-Bus-Back-Akld-02.jpg");
+    padding-top: 66.6%;
+}
+#chnz-bus-advertising-christchurch {
+    background-image: url("/img/portfolio/CHNZ-Bus-Back.jpg");
+    padding-top: 56.25%;
+}
+#chnz-plumbers-journal-advert {
+    background-image: url("/img/portfolio/CHNZ-Advert-Plumbers-Journal-Services.jpg");
+    padding-top: 70.3%;
+}
+#chnz-kia-ora-advert-photo {
+    background-image: url("/img/portfolio/CHNZ-Advert-Kia-Ora-June-Magazine.jpg");
+    padding-top: 66.6%;
+}
+#chnz-kia-ora-advert-june {
+    background-image: url("/img/portfolio/CHNZ-Advert-Kia-Ora-MadLib-June.jpg");
+    padding-top: 130.9%;
+}
+#chnz-mt-hutt-advert {
+    background-image: url("/img/portfolio/CHNZ-Advert-Mt-Hutt.jpg");
+    padding-top: 22.2%;
+}
+#chnz-mt-hutt-advert-photo {
+    background-image: url("/img/portfolio/CHNZ-Advert-Mt-Hutt-Photo.jpg");
+    padding-top: 75%;
+}
+#chnz-install-sign {
+    background-image: url("/img/portfolio/CHNZ-Site-Sign.jpg");
+    padding-top: 75%;
+}
+#chnz-install-sign-photo {
+    background-image: url("/img/portfolio/CHNZ-Site-Sign-Photo.jpg");
+    padding-top: 74.2%;
+}
+#chnz-retail-brochure {
+    background-image: url("/img/portfolio/CHNZ-Retail-Brochure.jpg");
+    padding-top: 35.1%;
+}
+#chnz-retail-display {
+    background-image: url("/img/portfolio/CHNZ-Merchant-Showroom-Mock-Up-01.jpg");
+    padding-top: 78.4%;
+}
+#chnz-retail-display-2 {
+    background-image: url("/img/portfolio/CHNZ-Merchant-Showroom-Mock-Up-02.jpg");
+    padding-top: 78.4%;
+}
+#uc-femsoc-zine {
+    background-image: url("/img/portfolio/UC-FemSoc-Bigotry-Free.jpg");
+    padding-top: 141.9%;
+}
+#koval-kim-home {
+    background-image: url("/img/portfolio/koval-kim-website-home.jpg");
+    padding-top: 54.31%;
+}
+#koval-kim-content {
+    background-image: url("/img/portfolio/koval-kim-website-content.jpg");
+    padding-top: 54.31%;
+}
+#koval-kim-mobile {
+    background-image: url("/img/portfolio/koval-kim-website-mobile-home.jpg");
+    padding-top: 183%;
+}
+#koval-kim-doodle {
+    background-image: url("/img/portfolio/koval-kim-website-shairahland-asset.jpg");
+    padding-top: 46.4%;
+}
+#koval-kim-schedule-outside {
+    background-image: url("/img/portfolio/Koval-Kim-Wedding-Schedule-Outside.jpg");
+    padding-top: 70.9%;
+}
+#koval-kim-schedule-inside {
+    background-image: url("/img/portfolio/Koval-Kim-Wedding-Schedule-Inside.jpg");
+    padding-top: 70.9%;
+}
+#koval-kim-namecard {
+    background-image: url("/img/portfolio/Koval-Kim-Wedding-Name-Tags.jpg");
+    padding-top: 70.9%;
+}
+#bear-dance-reimagined {
+    background-image: url("/img/portfolio/william-beard-bear-dance-shaina-koval.jpg");
+    padding-top: 100%;
+}
+#bear-dance-reimagined-cutout {
+    background-image: url("/img/portfolio/william-beard-main-bears-shaina-koval.jpg");
+    padding-top: 100%;
+}
+#wedding-bears {
+    background-image: url("/img/portfolio/wedding-bears-shaina-koval.jpg");
+    padding-top: 119.8%;
+}
+#wedding-bears-bride {
+    background-image: url("/img/portfolio/wedding-bears-bride-shaina-koval.jpg");
+    padding-top: 185.8%;
+}
+#wedding-bears-groom {
+    background-image: url("/img/portfolio/wedding-bears-groom-shaina-koval.jpg");
+    padding-top: 220.69%;
+}
+#lewis-clan {
+    background-image: url("/img/portfolio/lewis-clan-shaina-koval.jpg");
+    padding-top: 55.5%;
+}
+#daking-logo {
+    background-image: url("/img/portfolio/Daking-Components-Logo.jpg");
+    padding-top: 30.6%;
+}
+#daking-logo-options {
+    background-image: url("/img/portfolio/Daking-Components-Logo-Options.jpg");
+    padding-top: 70.8%;
+}
+#daking-business-card-front {
+    background-image: url("/img/portfolio/Daking-Components-Business-Card-front.jpg");
+    padding-top: 61.1%;
+}
+#daking-business-card-back {
+    background-image: url("/img/portfolio/Daking-Components-Business-Card-back.jpg");
+    padding-top: 61.1%;
+}
+#daking-letterhead {
+    background-image: url("/img/portfolio/Daking-Components-Letterhead.jpg");
+    padding-top: 141.4%;
+}
+#daking-web-home {
+    background-image: url("/img/portfolio/daking-components-website-home.jpg");
+    padding-top: 67.8%;
+}
+#daking-web-content {
+    background-image: url("/img/portfolio/daking-components-website-content.jpg");
+    padding-top: 131.6%;
+}
+#daking-web-contact {
+    background-image: url("/img/portfolio/daking-components-website-contact.jpg");
+    padding-top: 120.88%;
+}
+#daking-web-under-construction {
+    background-image: url("/img/portfolio/daking-components-website-under-construction.png");
+    padding-top: 53.9%;
+}
+#daking-newsletter {
+    background-image: url("/img/portfolio/daking-components-shifting-newsletter.jpg");
+    padding-top: 185.6%;
+}
+#the-big-wave {
+    background-image: url("/img/portfolio/the-big-wave-shaina-koval.jpg");
+    padding-top: 62.3%;
+}
+#blue-dream-curry {
+    background-image: url("/img/portfolio/blue-dream-curry-shaina-koval.jpg");
+    padding-top: 51.6%;
+}
+#blue-dream-curry-square {
+    background-image: url("/img/portfolio/blue-dream-curry-square-shaina-koval.jpg");
+    padding-top: 100%;
+}
+#hae-ran-jjambbong {
+    background-image: url("/img/portfolio/hae-ran-jjambbong-shaina-koval.jpg");
+    padding-top: 100%;
+}
+#starry-starry-hippo {
+    background-image: url("/img/portfolio/starry-starry-hippo-shaina-koval.jpg");
+    padding-top: 148.8%;
+}
+#dreams-turtle-cover {
+    background-image: url("/img/portfolio/dreams-turtle-cover-shaina-koval.jpg");
+    padding-top: 150%;
+}
+#dreams-turtle-full {
+    background-image: url("/img/portfolio/dreams-turtle-shaina-koval.jpg");
+    padding-top: 150%;
+}
+#dystopic-tree {
+    background-image: url("/img/portfolio/dystopic-tree-shaina-koval.jpg");
+    padding-top: 132.8%;
+}
+#marit-larsen {
+    background-image: url("/img/portfolio/marit-larsen-shaina-koval.jpg");
+    padding-top: 130.8%;
+}
+#cs-plus-x-web-home {
+    background-image: url("/img/portfolio/cs-plus-x-web-home.jpg");
+    padding-top: 55.63%;
+}
+#cs-plus-x-web-about {
+    background-image: url("/img/portfolio/cs-plus-x-web-about.jpg");
+    padding-top: 55.63%;
+}
+#cs-plus-x-web-schedule {
+    background-image: url("/img/portfolio/cs-plus-x-web-schedule.jpg");
+    padding-top: 55.63%;
+}
+#misfits-in-computer-science {
+    background-image: url("/img/portfolio/cs-plus-x-misfits-timeline-shaina-koval.jpg");
+    padding-top: 35.38%;
+}
+#cs-plus-x-poster {
+    background-image: url("/img/portfolio/cs-plus-x-poster-shaina-koval.jpg");
+    padding-top: 141.44%;
+}
+#cs-plus-x-schedule {
+    background-image: url("/img/portfolio/cs-plus-x-schedule-shaina-koval.jpg");
+    padding-top: 141.44%;
+}
+#cs-plus-x-haiku {
+    background-image: url("/img/portfolio/cs-plus-x-haiku-shaina-koval.jpg");
+    padding-top: 70.69%;
+}
+#uc-femsoc-zine-stem-cover {
+    background-image: url("/img/portfolio/uc-femsoc-zine-stem-cover.jpg");
+    padding-top: 141.88%;
+}
+#uc-femsoc-zine-stem-spread {
+    background-image: url("/img/portfolio/uc-femsoc-zine-stem-spread.jpg");
+    padding-top: 70.94%;
+}
+#uc-femsoc-zine-stem-misfits {
+    background-image: url("/img/portfolio/uc-femsoc-zine-stem-misfits.jpg");
+    padding-top: 70.94%;
+}
+#click-weight-success-logo {
+    background-image: url("/img/portfolio/click-weight-success-logo.jpg");
+    padding-top: 59.81%;
+}
+#click-weight-success-web-home {
+    background-image: url("/img/portfolio/click-weight-success-web-home.jpg");
+    padding-top: 55.63%;
+}
+#click-weight-success-web-programs {
+    background-image: url("/img/portfolio/click-weight-success-web-programs.jpg");
+    padding-top: 55.63%;
+}
+#click-weight-success-web-booking {
+    background-image: url("/img/portfolio/click-weight-success-web-booking.jpg");
+    padding-top: 55.63%;
+}
+#click-weight-success-web-contact-mobile {
+    background-image: url("/img/portfolio/click-weight-success-web-contact-mobile.jpg");
+    padding-top: 169.75%;
+}
+#click-weight-success-card-front {
+    background-image: url("/img/portfolio/click-weight-success-card-front.jpg");
+    padding-top: 61.15%;
+}
+#click-weight-success-card-back {
+    background-image: url("/img/portfolio/click-weight-success-card-back.jpg");
+    padding-top: 61.15%;
+}
+#click-weight-success-promo-flyer {
+    background-image: url("/img/portfolio/click-weight-success-promo-flyer.jpg");
+    padding-top: 103.31%;
+}
+#vintage-poster-hot-sauce {
+    background-image: url("/img/portfolio/1920s-vintage-poster-hot-sauce-shaina-koval.jpg");
+    padding-top: 141%;
+}
+#vintage-poster-avocados {
+    background-image: url("/img/portfolio/1920s-vintage-poster-avocados-shaina-koval.jpg");
+    padding-top: 141%;
+}
+
+/***************************************************************************
+---CONTACT
+***************************************************************************/
+form {
+    padding: 15px;
+    overflow: auto;
+}
+.contact-details {
+    float: left;
+    width: 46%;
+    margin-right: 8%;
+}
+input, textarea {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    padding: 3px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background-color: #eee;
+    font-family: 'Karla', Helvetica, sans-serif;
+}
+input:focus, textarea:focus {
+    border-color: #000;
+    outline: none !important;
+    box-shadow: none;
+}
+input {
+    display: block;
+    width: 100%;
+}
+input[type="submit"] {
+    width: 100px;
+}
+textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.contact-details+label {
+    float: left;
+    width: 46%;
+    height: 100%;
+    display: block;
+}
+.error {
+    color: #cc3333;
+}
+.g-recaptcha {
+    clear: both;
+    transform: scale(0.77);
+    transform-origin: center center;
+}
+.g-recaptcha div div {
+    margin-right: auto;
+    margin-left: auto;
+}
+.social-icon {
+    float: left;
+    height: auto;
+    margin-right: 10px;
+    width: 40px;
+}
+
+/***************************************************************************
+---404
+***************************************************************************/
+#fourohfour {
+    background: url('../img/404-runaway-page.png') no-repeat fixed bottom right;
+    background-size: 300px 194.5px;
+}
+/***************************************************************************
+---FOOTER
+***************************************************************************/
+footer {
+    padding: 20px 40px;
+    height: 103px;
+    box-sizing: border-box;
+}
+footer a {
+    color: #000;
+}
+footer a:hover {
+    color: #3399ff;
+}
+#footer-inner {
+    border-top: 1px solid #000;
+    overflow: auto;
+    padding: 20px 0;
+    line-height: 30px;
+}
+#footer-inner p {
+    display: inline-block;
+    float: right;
+    text-align: right;
+    margin-top: 0;
+}
+#footer-links {
+    display: inline-block;
+    float: left;
+}
+#footer-links div {
+    float: left;
+    margin-right: 15px;
+    padding-right: 15px;
+}
+
+/***************************************************************************
+---MEDIA QUERIES
+***************************************************************************/
+
+@media only screen and (max-width: 768px) {
+    #page-title {
+        display: block;
+    }
+    #portfolio-label-container {
+        display: block;
+        float: none;
+        text-align: left;
+    }
+    #portfolio-label-container .portfolio-type {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .item {
+        width: 47%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .main {
+        width: 100%;
+    }
+    aside {
+        width: 100%;
+    }
+    .fixed-sidebar,
+    #sidebar {
+        position: static;
+        width: 100% !important; /* overrides jQuery inline styles */
+    }
+    .item {
+        width: 100%;
+    }
+    .portrait-container {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    #header-inner {
+        padding: 10px 0 20px;
+    }
+    nav li {
+        float: none;
+        text-align: right;
+        line-height: 30px;
+    }
+    nav li:nth-child(even) {
+        display: none;
+    }
+    #portfolio-label-container {
+        margin-top: 10px;
+    }
+    #portfolio-label-container .portfolio-type {
+        display: block;
+        margin: 0;
+        /*border-bottom-color: transparent;
+        border-top-color: transparent;*/
+    }
+    #portfolio-label-container .portfolio-type:hover {
+        /*border-bottom-color: #cc3333;*/
+    }
+    #portfolio-label-container .portfolio-type:last-child {
+        border-bottom: 1px solid #000;
+    }
+    .contact-details,
+    .contact-details+label {
+        width: 100%;
+    }
+    #footer-links div {
+        float: none;
+    }
+    #footer-links div:nth-child(even) {
+        display: none;
+    }
+}

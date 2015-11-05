@@ -11,6 +11,7 @@ var bio = {
         "location": "Sydney"
     },
     "picture": "images/shaina-smile-crop.png",
+    "logo": "images/shaina-koval-initial-icon.svg",
     "welcomeMessage": "It's nice to meet you.",
     "skills": [
         "Graphic Design",
@@ -42,11 +43,12 @@ bio.display = function() {
     var formattedWebsite = HTMLblog.replace("%data%", "<a target='_blank' href='http://"+bio.contacts.website+"'>"+bio.contacts.website+"</a>").replace("blog", "website");
     var formattedGitHub = HTMLgithub.replace("%data%", "<a target='_blank' href='http://www.github.com/"+bio.contacts.github+"'>"+bio.contacts.github+"</a>");
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage).replace("span","h2");
 
-    $("#header").prepend(bioPic);
-    $("#header").prepend(formattedRole);
-    $("#header").prepend(formattedName);
+    $("#header-main").prepend(formattedRole);
+    $("#header-main").prepend(formattedName);
+    $("#header-main").prepend("<img class='logo' src='" + bio.logo + "' alt='Shaina Koval Logo with Initials'>");
+    $("#header").append(bioPic);
     $("#topContacts").append(formattedEmail);
     $("#topContacts").append(formattedWebsite);
     $("#topContacts").append(formattedGitHub);
@@ -166,9 +168,10 @@ projects.display = function() {
             $(".project-entry:last").append(formattedDescription);
 
             if (projects.projects[project].images.length > 0) {
+                $(".project-entry:last").append("<div class='slider'></div>");
                 for (image in projects.projects[project].images) {
                     var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-                    $(".project-entry:last").append(formattedImage);
+                    $(".slider").append(formattedImage);
                 }
             }
         }
@@ -282,3 +285,15 @@ $(document).click(function(loc) {
 
 //Add Fancy Map
 $("#mapDiv").append(googleMap);
+
+//initialise slider
+$(document).ready(function(){
+  $('.slider').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    centerMode: true,
+    variableWidth: true
+  });
+});
