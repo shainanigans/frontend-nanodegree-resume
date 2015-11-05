@@ -56,7 +56,7 @@ bio.display = function() {
     if (bio.skills.length > 0) {
         $("#header").append(HTMLskillsStart);
 
-        for (skill in bio.skills) {
+        for (var skill in bio.skills) {
             if (bio.skills.hasOwnProperty(skill)) {
                 var formattedSkill = HTMLskills.replace("%data%",bio.skills[skill]);
 
@@ -112,7 +112,7 @@ var work = {
 }
 
 work.display = function() {
-    for (job in work.jobs) {
+    for (var job in work.jobs) {
         if (work.jobs.hasOwnProperty(job)) {
             $("#workExperience").append(HTMLworkStart);
 
@@ -153,7 +153,7 @@ var projects = {
 }
 
 projects.display = function() {
-    for (project in projects.projects) {
+    for (var project in projects.projects) {
         if (projects.projects.hasOwnProperty(project)) {
             $("#projects").append(HTMLprojectStart);
 
@@ -235,7 +235,7 @@ var education = {
 }
 
 education.display = function() {
-    for (school in education.schools) {
+    for (var school in education.schools) {
         if (education.schools.hasOwnProperty(school)) {
             $("#education").append(HTMLschoolStart);
 
@@ -255,7 +255,7 @@ education.display = function() {
     var formattedCoursesHeading = HTMLonlineClasses.replace("Online Classes", "Learning +");
     $("#education").append(formattedCoursesHeading);
 
-    for (course in education.courses) {
+    for (var course in education.courses) {
         if (education.courses.hasOwnProperty(course)) {
             $("#education").append(HTMLschoolStart);
 
