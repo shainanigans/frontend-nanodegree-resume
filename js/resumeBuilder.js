@@ -153,16 +153,6 @@ var projects = {
                 "images/shaina-website-home-mobile.png"
             ],
             "description": "Design and illustration work"
-        },
-        {
-            "title": "Example",
-            "dates": "Dates",
-            "images": [
-                "images/shaina-website-home-desktop.png",
-                "images/shaina-website-project-desktop.png",
-                "images/shaina-website-home-mobile.png"
-            ],
-            "description": "Example of stuff"
         }
     ]
 
@@ -201,53 +191,98 @@ projects.display();
 var education = {
     "schools": [
         {
-            "name": "Vassar College",
-            "dates": "August 2007 - June 2009",
-            "location": "Poughkeepsie, NY, USA",
-            "url": "http://www.vassar.edu"
-        },
-        {
             "name": "Pratt Institute",
-            "graduation": "February 2010",
-            "degree": "BFA",
+            "dates": "August 2007 - February 2010",
+            "degree": "Bachelor of Fine Arts with Honours",
             "major": "Communications Design",
             "location": "Brooklyn, NY, USA",
             "url": "http://www.pratt.edu"
+        },
+        {
+            "name": "Vassar College",
+            "dates": "August 2005 - May 2007",
+            "degree": "Two years undergraduate coursework (Transferred)",
+            "major": "Undeclared",
+            "location": "Poughkeepsie, NY, USA",
+            "url": "http://www.vassar.edu"
         }
     ],
-    "training": [
+    "courses": [
         {
             "title": "Front-End Web Developer Nanodegree",
             "school": "Udacity",
-            "date": "Oct 2015 - Present",
+            "dates": "Oct 2015 - Present",
             "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
         },
         {
             "title": "PHP",
             "school": "Codecademy",
-            "date": "Present",
+            "dates": "Present",
             "url": "https://www.codecademy.com/learn/php"
         },
         {
             "title": "Responsive Web Design",
             "school": "Dynamic Web Training",
-            "date": "Jan 2015",
+            "dates": "Jan 2015",
             "url": "https://www.dynamicwebtraining.com.au/mobile-website-and-app-training/responsive-web-design-course"
         },
         {
             "title": "InDesign Beyond the Basics",
             "school": "Yoobee School of Design",
-            "date": "Sep 2014",
+            "dates": "Sep 2014",
             "url": "http://www.yoobee.ac.nz/study/graphic-design/indesign-beyond-the-basics/"
         },
         {
             "title": "24-Evening Online Marketing",
             "school": "AcademyX",
-            "date": "Oct - Dec 2012",
+            "dates": "Oct - Dec 2012",
             "url": "https://www.academyx.com/training/san_francisco/programs/web-marketing/"
         }
     ]
 }
+
+education.display = function() {
+    for (school in education.schools) {
+        if (education.schools.hasOwnProperty(school)) {
+            $("#education").append(HTMLschoolStart);
+
+            var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name).replace("#",education.schools[school].url);
+            $(".education-entry:last").append(formattedName);
+
+            var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+            $(".education-entry:last").append(formattedDates);
+
+            var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+            $(".education-entry:last").append(formattedDegree);
+
+            var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
+            $(".education-entry:last").append(formattedMajor);
+
+            var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+            $(".education-entry:last").append(formattedLocation);
+        }
+    }
+
+    var formattedCoursesHeading = HTMLonlineClasses.replace("Online Classes", "Learning +");
+    $("#education").append(formattedCoursesHeading);
+
+    for (course in education.courses) {
+        if (education.courses.hasOwnProperty(course)) {
+            $("#education").append(HTMLschoolStart);
+
+            var formattedTitle = HTMLonlineTitle.replace("#",education.courses[course].url).replace("%data%",education.courses[course].title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%",education.courses[course].school);
+            var courseHeader = formattedTitle + formattedSchool;
+            var formattedDates = HTMLonlineDates.replace("%data%",education.courses[course].dates);
+
+            $('.education-entry:last').append(courseHeader);
+            $(".education-entry:last").append(formattedDates);
+
+        }
+    }
+}
+
+education.display();
 
 //Log Clicks
 $(document).click(function(loc) {
