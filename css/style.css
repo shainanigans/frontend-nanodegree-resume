@@ -14,6 +14,10 @@
   margin-top: 2em;
 }
 
+#header ul {
+  list-style-type: none;
+}
+
 #header-main h1 {
   margin-bottom: 0;
 }
@@ -24,8 +28,12 @@
   border-bottom: 1px solid black;
 }
 
-#header-main .flex-item {
-  width: 50%;
+#topContacts {
+  clear: both;
+}
+
+#topContacts .flex-item {
+  width: 100%;
 }
 
 .logo {
@@ -35,18 +43,18 @@
 }
 
 .biopic {
-  float: left;
+  display: block;
+  margin: 0 auto;
   padding: 10px;
   width: 200px;
-  margin-right: 1em;
 }
 
-#header ul {
-  list-style-type: none;
+.welcome-message {
+  text-align: center;
 }
 
 #skills .flex-item {
-  width: 33.33%;
+  width: 100%;
 }
 
 
@@ -70,15 +78,27 @@
 
 img {
   max-width: 100%;
+  max-height: 400px;
+}
+
+.work-entry+.work-entry,
+.education-entry+.education-entry,
+.project-entry+.project-entry {
+  margin-top: 2em;
 }
 
 .slider {
   border: 1px solid #000000;
+  max-height: 430px;
+}
+
+.slider .slick-list {
+  overflow: hidden;
 }
 
 .slider img {
-  max-height: 400px;
-  margin: 0 .5em;
+  position: relative;
+  margin: 10px;
   border: 1px solid #eeeeee;
 }
 
@@ -112,45 +132,40 @@ img {
 ---MEDIA QUERIES
 ***************************************************************************/
 
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
+@media only screen and (min-width: 440px) {
+  #skills .flex-item {
+    width: 50%;
   }
 }
 
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
+@media only screen and (min-width: 630px) {
+  #topContacts {
+    clear: none;
   }
-}
 
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
   .biopic {
+    float: left;
+    margin-right: 1em;
     width: 150px;
   }
+
   .welcome-message {
-    display: none;
+    text-align: left;
   }
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
+@media only screen and (min-width: 768px) {
+  #header-main .flex-item {
+    width: 50%;
+  }
+
+  #skills .flex-item {
+    width: 33.33%;
+  }
 }
 
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-}
-
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
+@media only screen and (min-width: 1024px) {
+  #header-main .flex-item {
+    width: 25%;
   }
 }

@@ -8,7 +8,7 @@ var bio = {
         "email": "me@shainakoval.com",
         "website": "www.shainakoval.com",
         "github": "shainanigans",
-        "location": "Sydney"
+        "location": "Sydney, Australia"
     },
     "picture": "images/shaina-smile-crop.png",
     "logo": "images/shaina-koval-initial-icon.svg",
@@ -149,9 +149,9 @@ var projects = {
             "title": "Shaina Koval Design & Illustration",
             "dates": "Dec 2010 - Present",
             "images": [
-                "images/shaina-website-home-desktop.png",
-                "images/shaina-website-project-desktop.png",
-                "images/shaina-website-home-mobile.png"
+                "images/shaina-website-home-desktop.jpg",
+                "images/shaina-website-project-desktop.jpg",
+                "images/shaina-website-home-mobile.jpg"
             ],
             "description": "Web design, web development, print design, and illustration work from freelance and full-time positions."
         }
@@ -213,31 +213,36 @@ var education = {
             "title": "Front-End Web Developer Nanodegree",
             "school": "Udacity",
             "dates": "Oct 2015 - Present",
-            "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+            "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001",
+            "location": "Online"
         },
         {
             "title": "PHP",
             "school": "Codecademy",
             "dates": "Present",
-            "url": "https://www.codecademy.com/learn/php"
+            "url": "https://www.codecademy.com/learn/php",
+            "location": "Online"
         },
         {
             "title": "Responsive Web Design",
             "school": "Dynamic Web Training",
             "dates": "Jan 2015",
-            "url": "https://www.dynamicwebtraining.com.au/mobile-website-and-app-training/responsive-web-design-course"
+            "url": "https://www.dynamicwebtraining.com.au/mobile-website-and-app-training/responsive-web-design-course",
+            "location": "Sydney, Australia"
         },
         {
             "title": "InDesign Beyond the Basics",
             "school": "Yoobee School of Design",
             "dates": "Sep 2014",
-            "url": "http://www.yoobee.ac.nz/study/graphic-design/indesign-beyond-the-basics/"
+            "url": "http://www.yoobee.ac.nz/study/graphic-design/indesign-beyond-the-basics/",
+            "location": "Christchurch, New Zealand"
         },
         {
             "title": "24-Evening Online Marketing",
             "school": "AcademyX",
             "dates": "Oct - Dec 2012",
-            "url": "https://www.academyx.com/training/san_francisco/programs/web-marketing/"
+            "url": "https://www.academyx.com/training/san_francisco/programs/web-marketing/",
+            "location": "San Francisco, CA, USA"
         }
     ]
 }
@@ -273,6 +278,7 @@ education.display = function() {
 
             $('.education-entry:last').append(formattedTitle + formattedSchool);
             $(".education-entry:last").append(formattedDates);
+            $(".education-entry:last").append("<div class='location-text'>"+ education.courses[course].location +"</div>");
 
         }
     }
@@ -289,19 +295,42 @@ $(document).click(function(loc) {
 });
 
 //Add Fancy Map
-$("#mapDiv").append(googleMap).prepend("<a name='where'></a>");;
+$("#mapDiv").append(googleMap);
 
 //Initialise slider
 $(document).ready(function(){
-  $('.slider').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    centerMode: true,
-    variableWidth: true
-  });
+    $('.slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true
+    });
+    var setMaxWidth = function() {
+        //get width of slider
+        var width = $(".slider").width();
+        //set max-width of image to slider width with some padding
+        $(".slider img").css("max-width", width - 21);
+    }
+    //var verticallyCenter = function() {
+    //    var sliderHeight = $(".slider").height();
+    //    var imageHeight = $.each($(".slider img").height());
+    //    console.log(imageHeight);
+        //$(".slider img").css("top", sliderHeight/2 - imageHeight/2);
+    //}
+    //needs to readjust with window size
+    $(window).load(function() {
+        setMaxWidth();
+        //verticallyCenter();
+    });
+    $(window).resize(function() {
+        setMaxWidth();
+        //verticallyCenter();
+    });
+
 });
+
 
 //Scrolling on-page links
 $(document).ready(function(){
