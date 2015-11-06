@@ -1,9 +1,23 @@
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
 .clear-fix {
   overflow: auto;
 }
 
 :focus {
   outline: none;
+}
+
+.content {
+  margin-bottom: 0 !important; /*override main.css sticky footer fix*/
+}
+.content:after {
+  height: 0 !important; /*override main.css sticky footer fix*/
 }
 
 
@@ -124,8 +138,34 @@ img {
   -o-transition: top 1s ease-out, position 1s ease-out;
 }
 
+#map {
+  height: 400px;
+}
+
+/***************************************************************************
+---FOOTER
+***************************************************************************/
 #lets-connect {
+  max-width: 768px;
+  margin: 0 auto 3em;
   text-align: center;
+}
+
+#lets-connect ul {
+  list-style: none;
+}
+
+#lets-connect .contact-item {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+[class*="fontawesome-"] {
+  display: block;
+}
+
+#lets-connect .orange-text {
+  display: none;
 }
 
 /***************************************************************************
@@ -152,6 +192,11 @@ img {
   .welcome-message {
     text-align: left;
   }
+
+  #lets-connect .contact-item {
+    width: 33.33%;
+    margin-bottom: 0;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -161,11 +206,5 @@ img {
 
   #skills .flex-item {
     width: 33.33%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  #header-main .flex-item {
-    width: 25%;
   }
 }
