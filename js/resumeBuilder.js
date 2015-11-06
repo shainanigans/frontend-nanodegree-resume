@@ -25,13 +25,7 @@ var bio = {
         "MailChimp",
         "Photoshop",
         "InDesign",
-        "Illustrator",
-        "Microsoft Office",
-        "Mac OSX",
-        "Windows",
-        "Time Management",
-        "Communication",
-        "Organisation"
+        "Illustrator"
     ]
 }
 
@@ -66,6 +60,11 @@ bio.display = function() {
             }
         }
     }
+
+    //Add contact details and zocial icons to footer area
+    $("#footerContacts").append("<div class='contact-item'><span class='fontawesome-envelope'></span>" + formattedEmail + "</div>");
+    $("#footerContacts").append("<div class='contact-item'><span class='fontawesome-desktop'></span>" + formattedWebsite + "</div>");
+    $("#footerContacts").append("<div class='contact-item'><span class='fontawesome-github'></span>" + formattedGitHub + "</div>");
 }
 
 bio.display();
@@ -286,6 +285,10 @@ education.display = function() {
 
 education.display();
 
+/*****************
+    FANCY BITS
+*****************/
+
 //Log Clicks
 $(document).click(function(loc) {
     var x = loc.pageX;
@@ -344,4 +347,9 @@ $(document).ready(function(){
 	        'scrollTop': $target.offset().top
 	    }, 500, 'swing');
 	});
+});
+
+//Flip biopic on click
+$(".biopic").click(function() {
+    $(".biopic").toggleClass("flipped" , "addOrRemove");
 });

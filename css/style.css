@@ -9,7 +9,12 @@
   overflow: auto;
 }
 
-:focus {
+* {
+  outline: none;
+}
+
+:focus,
+a:focus {
   outline: none;
 }
 
@@ -61,6 +66,20 @@
   margin: 0 auto;
   padding: 10px;
   width: 200px;
+}
+
+.biopic:hover {
+  opacity: .9;
+  cursor: pointer;
+}
+
+.flipped {
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
 }
 
 .welcome-message {
