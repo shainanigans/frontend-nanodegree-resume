@@ -2,6 +2,10 @@
   overflow: auto;
 }
 
+:focus {
+  outline: none;
+}
+
 
 /***************************************************************************
 ---HEADER
@@ -65,13 +69,39 @@
 }
 
 img {
-  padding: 10px;
   max-width: 100%;
+}
+
+.slider {
+  border: 1px solid #000000;
+}
+
+.slider img {
+  max-height: 400px;
+  margin: 0 .5em;
+  border: 1px solid #eeeeee;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #000000;
 }
 
 .orange-text,
 .location-text {
   font-weight: bold;
+}
+
+#sidebar {
+  margin-top: 0;
+  padding: 2em;
+}
+
+.sidenav {
+  transition: top 1s ease-out, position 1s ease-out;
+  -webkit-transition: top 1s ease-out, position 1s ease-out;
+  -moz-transition: top 1s ease-out, position 1s ease-out;
+  -o-transition: top 1s ease-out, position 1s ease-out;
 }
 
 #lets-connect {

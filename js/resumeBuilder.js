@@ -70,6 +70,11 @@ bio.display = function() {
 
 bio.display();
 
+/**************
+    SIDEBAR
+**************/
+$("#sidebar").append("<h2>What would you like to see?</h2><a href='#workExperience'>Work Experience</a><a href='#projects'>Projects</a><a href='#education'>Education</a><a href='#mapDiv'>Where I've Lived and Worked</a>");
+
 /***********
     WORK
 ***********/
@@ -148,7 +153,7 @@ var projects = {
                 "images/shaina-website-project-desktop.png",
                 "images/shaina-website-home-mobile.png"
             ],
-            "description": "Design and illustration work"
+            "description": "Web design, web development, print design, and illustration work from freelance and full-time positions."
         }
     ]
 
@@ -171,7 +176,7 @@ projects.display = function() {
                 $(".project-entry:last").append("<div class='slider'></div>");
                 for (image in projects.projects[project].images) {
                     var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-                    $(".slider").append(formattedImage);
+                    $(".project-entry:last .slider").append("<div>" + formattedImage + "</div>");
                 }
             }
         }
@@ -284,9 +289,9 @@ $(document).click(function(loc) {
 });
 
 //Add Fancy Map
-$("#mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap).prepend("<a name='where'></a>");;
 
-//initialise slider
+//Initialise slider
 $(document).ready(function(){
   $('.slider').slick({
     dots: true,
@@ -296,4 +301,18 @@ $(document).ready(function(){
     centerMode: true,
     variableWidth: true
   });
+});
+
+//Scrolling on-page links
+$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 500, 'swing');
+	});
 });
