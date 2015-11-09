@@ -307,29 +307,31 @@ $(document).ready(function(){
         infinite: true,
         speed: 300,
         slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true
+        centerMode: false,
+        variableWidth: false,
+        variableHeight: true
     });
-    var setMaxWidth = function() {
-        //get width of slider
+    var positionImage = function() {
+        var images = $(".slider img");
         var width = $(".slider").width();
-        //set max-width of image to slider width with some padding
-        $(".slider img").css("max-width", width - 21);
+        var height = $(".slider").height();
+
+        $(images).css("max-width", width - 21);
+
+        $.each($(images), function() {
+            var imageWidth = $(this).width();
+            var imageHeight = $(this).height();
+
+            $(this).css("margin-left", (width - imageWidth) / 2);
+            $(this).css("margin-top", (height - imageHeight) / 2);
+        });
     }
-    //var verticallyCenter = function() {
-    //    var sliderHeight = $(".slider").height();
-    //    var imageHeight = $.each($(".slider img").height());
-    //    console.log(imageHeight);
-        //$(".slider img").css("top", sliderHeight/2 - imageHeight/2);
-    //}
     //needs to readjust with window size
     $(window).load(function() {
-        setMaxWidth();
-        //verticallyCenter();
+        positionImage();
     });
     $(window).resize(function() {
-        setMaxWidth();
-        //verticallyCenter();
+        positionImage();
     });
 
 });
@@ -349,7 +351,9 @@ $(document).ready(function(){
 	});
 });
 
-//Flip biopic on click
-$(".biopic").click(function() {
-    $(".biopic").toggleClass("flipped" , "addOrRemove");
+//Flip biopic
+$(document).ready(function(){
+    $(".biopic").hover(function() {
+        $(".biopic").toggleClass("flipped" , "addOrRemove");
+    });
 });
