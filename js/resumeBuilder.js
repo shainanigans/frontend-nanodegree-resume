@@ -83,7 +83,10 @@ var work = {
             "title": "Designer, Front-End Developer and Illustrator",
             "employer": "Shaina Koval Design & Illustration",
             "dates": "Dec 2010 - Present",
-            "location": "NYC, San Francisco, Christchurch and Sydney",
+            "location": "New York City, USA",
+            "location2": "San Francisco, USA",
+            "location3": "Christchurch, New Zealand",
+            "location4": "Sydney, Australia",
             "description": "By managing my time effectively, I have continued freelance work on design and illustration projects while working full- time positions. My freelance work has included: <ul><li>New company branding projects involving web design and development, logo design, business cards, vehicle graphics, and more.</li> <li>Illustrations for zines, posters, merchandising, essays.</li> <li>Self-promotion on my personal website and Facebook. Managing projects and client relations.</li></ul>"
         },
         {
@@ -97,21 +100,22 @@ var work = {
             "title": "Design and Marketing Manager",
             "employer": "AcademyX",
             "dates": "Dec 2012 - Mar 2013",
-            "location": "San Francisco, CA, USA (working remotely from New Zealand)",
+            "location": "San Francisco, USA",
+            "location2": "Christchurch, New Zealand",
             "description": "In this role, I designed all company advertisements and promotional materials, providing a cohesive aesthetic for the company. Additionally, I managed website updates to content and code and executed online marketing strategies. <ul><li>Designed and coded e-newsletters using HTML and CSS in Dreamweaver, ensuring that code would translate properly into a variety of email clients.</li> <li>Researched topics and wrote content for e-newsletters.</li> <li>Updated web pages with content changes, added rich snippets, and unified styling for over 500 pages.</li> <li>Rewrote and coded web page content for better SEO.</li> <li>Increased Facebook page activity with engaging content.</li></ul>"
         },
         {
             "title": "Training and Operations Coordinator",
             "employer": "AcademyX",
             "dates": "Jun 2011 - Dec 2012",
-            "location": "San Francisco, CA, USA",
+            "location": "San Francisco, USA",
             "description": "This role fully utilised my attention to detail, making sure that all of our San Francisco branch classes met company standards for excellence. In a small office, it was essential that I gave 110% each day, ensured that my work was up to par, and wore as many hats as the day required, as any mistake could cost the company thousands of dollars. I directly supported the CEO in day-to-day operations as well as long term growth projects, design tasks, and customer retention, and assigned responsibilities as needed to the Administrative Assistant. <ul><li>Managed over 100 instructors and assigned teaching responsibilities to them.</li> <li>Scheduled public enrolment and private computer training classes, ensuring that all computer equipment was functional and that sufficient training materials were prepared.</li> <li>Designed new brochure, book cover, class catalogue, flyers, and banners.</li> <li>Promoted and maintained government funded training programs by assisting customers and working with government liaisons.</li> <li>Managed emergencies such as whe an instructor failed to show up for a full class at 9am (where the students have paid $400 USD to attend) or when a student became violently ill during a class.</li> <li>Answered questions and mediated customer and instructor concerns as lead customer service representative and go-to employee for knowledge on our services and operations.</li> <li>Averaged over 70 emails per day in addition to other responsibilities.</li></ul>"
         },
         {
             "title": "Administrative Assistant",
             "employer": "AcademyX",
             "dates": "Feb 2011 - May 2011",
-            "location": "San Francisco, CA, USA",
+            "location": "San Francisco, USA",
             "description": "As the first face that customers saw when they walked in, I set the tone for an enjoyable experience at the company’s facilities. I assisted all other staff members, from accountant to CEO, with their administrative needs while providing customer service and light IT support in the classroom. <ul><li>Addressed customer enquiries and concerns.</li> <li>Organised office storage space, maintained clean and professional classrooms, and stocked supplies.</li> <li>Consulted training calendar and enrolment lists to stock books and class materials for all classes on site and off site.</li> <li>Installed software and solved technical issues ranging from network connectivity to malfunctioning hardware to computer re-imaging.</li> <li>Received Employee of the Month the only month this award was offered in my almost two years at the company (and was allowed to keep the certificate displayed at my desk for my entire tenure there).</li></ul>"
         }
     ]
@@ -130,6 +134,15 @@ work.display = function() {
 
             $(".work-entry:last").append(formattedEmployer + formattedTitle);
             $(".work-entry:last").append(formattedLocation);
+            if (work.jobs[job].location2 !== undefined) {
+                $('.location-text:last').append("<br>" + work.jobs[job].location2);
+            }
+            if (work.jobs[job].location3 !== undefined) {
+                $('.location-text:last').append("<br>" + work.jobs[job].location3);
+            }
+            if (work.jobs[job].location4 !== undefined) {
+                $('.location-text:last').append("<br>" + work.jobs[job].location4);
+            }
             $(".work-entry:last").append(formattedDates);
             $(".work-entry:last").append(formattedDescription);
         }

@@ -159,14 +159,51 @@ function initializeMap() {
       locations.push(education.schools[school].location);
     }
 
+    for (var course in education.courses) {
+      if (education.courses[course].location !== "Online") {
+        locations.push(education.courses[course].location);
+      }
+    }
+
     // iterates through work locations and appends each location to
     // the locations array
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
+      if (work.jobs[job].location2 !== undefined) {
+        locations.push(work.jobs[job].location2);
+      }
+      if (work.jobs[job].location3 !== undefined) {
+        locations.push(work.jobs[job].location3);
+      }
+      if (work.jobs[job].location4 !== undefined) {
+        locations.push(work.jobs[job].location4);
+      }
     }
 
     return locations;
+
   }
+
+  locations = locationFinder();
+
+  //Create object with Location: Jobs as properties and values
+  var jobsByLocation = {};
+  var numberLocations = locations.length;
+
+  for (var job in work.jobs) {
+    for (var i = 0; i <= numberLocations; i++) {
+      if (work.jobs[job].location === locations[i]) {
+        //jobsByLocation[locations[i]] = work.jobs[job].title; //will need an array
+        jobsByLocation[locations[i]] = [];
+        jobsByLocation[locations[i]].push(work.jobs[job].title);
+      }
+    }
+  }
+  console.log(jobsByLocation);
+
+  //var roles = ; //The array of jobs
+
+
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -193,7 +230,7 @@ function initializeMap() {
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: "<h3>" + name + "</h3>"
+      content: "<h3>" + name + "</h3><p>What I did here:</p><ul>" +  + "</ul>"
     });
 
     // hmmmm, I wonder what this is about...
@@ -248,7 +285,7 @@ function initializeMap() {
   window.mapBounds = new google.maps.LatLngBounds();
 
   // locations is an array of location strings returned from locationFinder()
-  locations = locationFinder();
+  //locations = locationFinder();
 
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
