@@ -184,7 +184,7 @@ function initializeMap() {
 
   }
 
-  locations = locationFinder();
+  // TODO: Add jobs and education to infoWindows
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -271,7 +271,7 @@ function initializeMap() {
   window.mapBounds = new google.maps.LatLngBounds();
 
   // locations is an array of location strings returned from locationFinder()
-  //locations = locationFinder();
+  locations = locationFinder();
 
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
