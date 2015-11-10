@@ -186,31 +186,6 @@ function initializeMap() {
 
   locations = locationFinder();
 
-  //Create object with Location: Jobs as properties and values
-  var jobsByLocation = {};
-  var uniqueLocations = $.unique(locations);
-  var numberLocations = uniqueLocations.length;
-
-  for (var i = 0; i <= numberLocations; i++) {
-    jobsByLocation[uniqueLocations[i]] = [];
-    for (var job in work.jobs) {
-      if (work.jobs[job].location === uniqueLocations[i]) {
-        jobsByLocation[uniqueLocations[i]].push("<li>" + work.jobs[job].title + "</li>");
-      }
-      //What if job has multiple locations?
-    }
-  }
-
-  //Get a list of the properties (cities), use them to access object?
-
-  var locationList = Object.keys(jobsByLocation);
-  console.log(locationList[0]);
-  console.log(jobsByLocation[locationList[0]]);
-
-  //Match the property with the location being pushed to the map marker
-
-
-
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
   placeData is the object returned from search results containing information
@@ -234,14 +209,19 @@ function initializeMap() {
 
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
-    // about a location.
+    // about a location
+
     var infoWindow = new google.maps.InfoWindow({
-      content: "<h3>" + name + "</h3><p>What I did here:</p><ul>" +  + "</ul>"
+      content: "<h3>" + name + "</h3>"
+    });
+    // hmmmm, I wonder what this is about...
+
+    google.maps.event.addListener(marker, 'mouseover', function() {
+      infoWindow.open(map,marker);
     });
 
-    // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.open(map,marker);
+    google.maps.event.addListener(marker, 'mouseout', function() {
+      infoWindow.close();
     });
 
     // this is where the pin actually gets added to the map.
