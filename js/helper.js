@@ -156,11 +156,13 @@ function initializeMap() {
     // iterates through school locations and appends each location to
     // the locations array
     for (var school in education.schools) {
+      if (education.schools[school].location !== undefined) {
       locations.push(education.schools[school].location);
+      }
     }
 
     for (var course in education.courses) {
-      if (education.courses[course].location !== "Online") {
+      if (education.courses[course].location !== "Online" && education.courses[course].location !== undefined) {
         locations.push(education.courses[course].location);
       }
     }
@@ -168,7 +170,9 @@ function initializeMap() {
     // iterates through work locations and appends each location to
     // the locations array
     for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+      if (work.jobs[job].location !== undefined) {
+        locations.push(work.jobs[job].location);
+      }
       if (work.jobs[job].location2 !== undefined) {
         locations.push(work.jobs[job].location2);
       }

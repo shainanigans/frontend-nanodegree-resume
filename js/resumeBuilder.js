@@ -27,7 +27,7 @@ var bio = {
         "InDesign",
         "Illustrator"
     ]
-}
+};
 
 bio.display = function() {
     var bioPic = HTMLbioPic.replace('%data%', bio.picture);
@@ -65,7 +65,7 @@ bio.display = function() {
     $('#footerContacts').append("<div class='contact-item'><span class='fontawesome-envelope'></span>" + formattedEmail + "</div>");
     $('#footerContacts').append("<div class='contact-item'><span class='fontawesome-desktop'></span>" + formattedWebsite + "</div>");
     $('#footerContacts').append("<div class='contact-item'><span class='fontawesome-github'></span>" + formattedGitHub + "</div>");
-}
+};
 
 bio.display();
 
@@ -119,7 +119,7 @@ var work = {
             "description": "As the first face that customers saw when they walked in, I set the tone for an enjoyable experience at the company’s facilities. I assisted all other staff members, from accountant to CEO, with their administrative needs while providing customer service and light IT support in the classroom. <ul><li>Addressed customer enquiries and concerns.</li> <li>Organised office storage space, maintained clean and professional classrooms, and stocked supplies.</li> <li>Consulted training calendar and enrolment lists to stock books and class materials for all classes on site and off site.</li> <li>Installed software and solved technical issues ranging from network connectivity to malfunctioning hardware to computer re-imaging.</li> <li>Received Employee of the Month the only month this award was offered in my almost two years at the company (and was allowed to keep the certificate displayed at my desk for my entire tenure there).</li></ul>"
         }
     ]
-}
+};
 
 work.display = function() {
     for (var job in work.jobs) {
@@ -147,7 +147,7 @@ work.display = function() {
             $('.work-entry:last').append(formattedDescription);
         }
     }
-}
+};
 
 work.display();
 
@@ -169,7 +169,7 @@ var projects = {
         }
     ]
 
-}
+};
 
 projects.display = function() {
     for (var project in projects.projects) {
@@ -186,14 +186,14 @@ projects.display = function() {
 
             if (projects.projects[project].images.length > 0) {
                 $('.project-entry:last').append('<div class="slider"></div>');
-                for (image in projects.projects[project].images) {
+                for (var image in projects.projects[project].images) {
                     var formattedImage = HTMLprojectImage.replace('%data%',projects.projects[project].images[image]);
                     $('.project-entry:last .slider').append('<div>' + formattedImage + '</div>');
                 }
             }
         }
     }
-}
+};
 
 projects.display();
 
@@ -257,14 +257,14 @@ var education = {
             "location": "San Francisco, USA"
         }
     ]
-}
+};
 
 education.display = function() {
     for (var school in education.schools) {
         if (education.schools.hasOwnProperty(school)) {
             $('#education').append(HTMLschoolStart);
 
-            var formattedName = HTMLschoolName.replace('%data%',education.schools[school].name).replace('#',education.schools[school].url)
+            var formattedName = HTMLschoolName.replace('%data%',education.schools[school].name).replace('#',education.schools[school].url);
             var formattedDegree = HTMLschoolDegree.replace('%data%',education.schools[school].degree);
             var formattedDates = HTMLschoolDates.replace('%data%',education.schools[school].dates);
             var formattedMajor = HTMLschoolMajor.replace('%data%',education.schools[school].major);
@@ -284,17 +284,17 @@ education.display = function() {
         if (education.courses.hasOwnProperty(course)) {
             $('#education').append(HTMLschoolStart);
 
-            var formattedTitle = HTMLonlineTitle.replace('#',education.courses[course].url).replace('%data%',education.courses[course].title)
+            var formattedTitle = HTMLonlineTitle.replace('#',education.courses[course].url).replace('%data%',education.courses[course].title);
             var formattedSchool = HTMLonlineSchool.replace('%data%',education.courses[course].school);
-            var formattedDates = HTMLonlineDates.replace('%data%',education.courses[course].dates);
+            var formattedOnlineDates = HTMLonlineDates.replace('%data%',education.courses[course].dates);
 
             $('.education-entry:last').append(formattedTitle + formattedSchool);
-            $('.education-entry:last').append(formattedDates);
+            $('.education-entry:last').append(formattedOnlineDates);
             $('.education-entry:last').append('<div class="location-text">'+ education.courses[course].location +'</div>');
 
         }
     }
-}
+};
 
 education.display();
 
@@ -338,7 +338,7 @@ $(document).ready(function(){
             $(this).css('margin-left', (width - imageWidth) / 2);
             $(this).css('margin-top', (height - imageHeight) / 2);
         });
-    }
+    };
     //needs to readjust with window size
     $(window).load(function() {
         positionImage();
