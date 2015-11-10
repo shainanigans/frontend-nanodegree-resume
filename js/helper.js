@@ -188,20 +188,26 @@ function initializeMap() {
 
   //Create object with Location: Jobs as properties and values
   var jobsByLocation = {};
-  var numberLocations = locations.length;
+  var uniqueLocations = $.unique(locations);
+  var numberLocations = uniqueLocations.length;
 
-  for (var job in work.jobs) {
-    for (var i = 0; i <= numberLocations; i++) {
-      if (work.jobs[job].location === locations[i]) {
-        //jobsByLocation[locations[i]] = work.jobs[job].title; //will need an array
-        jobsByLocation[locations[i]] = [];
-        jobsByLocation[locations[i]].push(work.jobs[job].title);
+  for (var i = 0; i <= numberLocations; i++) {
+    jobsByLocation[uniqueLocations[i]] = [];
+    for (var job in work.jobs) {
+      if (work.jobs[job].location === uniqueLocations[i]) {
+        jobsByLocation[uniqueLocations[i]].push("<li>" + work.jobs[job].title + "</li>");
       }
+      //What if job has multiple locations?
     }
   }
-  console.log(jobsByLocation);
 
-  //var roles = ; //The array of jobs
+  //Get a list of the properties (cities), use them to access object?
+
+  var locationList = Object.keys(jobsByLocation);
+  console.log(locationList[0]);
+  console.log(jobsByLocation[locationList[0]]);
+
+  //Match the property with the location being pushed to the map marker
 
 
 

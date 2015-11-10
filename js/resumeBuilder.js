@@ -254,7 +254,7 @@ var education = {
             "school": "AcademyX",
             "dates": "Oct - Dec 2012",
             "url": "https://www.academyx.com/training/san_francisco/programs/web-marketing/",
-            "location": "San Francisco, CA, USA"
+            "location": "San Francisco, USA"
         }
     ]
 }
