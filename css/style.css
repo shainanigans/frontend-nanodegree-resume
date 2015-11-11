@@ -72,6 +72,10 @@ a:focus {
   -o-transition: scaleY, .25s, ease-in-out;
 }
 
+.biopic:hover {
+  cursor: pointer;
+}
+
 .flipped {
   -moz-transform: scaleY(-1);
   -o-transform: scaleY(-1);
